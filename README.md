@@ -26,7 +26,7 @@ This will run the jbossfsw600 container and starts automatically JBoss FSW.  You
 Run **docker ps** to see all the running containers or **docker inspect $containerID** to view the IP address and details of a container.
 
 ## Experimenting
-To spin up a shell in the JBoss Data Virtualization containers try:
+To spin up a shell in the JBoss Fuse Service Works containers try:
 
 		$ docker run -P -i -t jbossfsw600 /bin/bash
 
