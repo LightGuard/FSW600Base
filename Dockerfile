@@ -1,6 +1,6 @@
 #######################################################################
 #                                                                     #
-# Creates a base CentOS image with JBoss Data Virtualization 6.0.0.GA #
+# Creates a base CentOS image with JBoss FSW 6.0.0.GA #
 #                                                                     #
 #######################################################################
 
@@ -48,14 +48,14 @@ RUN echo "export JAVA_HOME=/usr/lib/jvm/jre" >> $HOME/.bash_profile
 RUN echo "alias ll='ls -l --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias grep='grep --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias c='clear'" >> $HOME/.bash_profile
-RUN echo "alias sdv='$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
-RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
+RUN echo "alias sdv='$HOME/fsw/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
+RUN echo "alias xdv='$HOME/fsw/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
 
 # start.sh
 USER root
 RUN echo "#!/bin/sh"
 RUN echo "echo JBoss Fuse Service Works Start script" >> $HOME/run.sh
-RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
+RUN echo "runuser -l jboss -c '$HOME/fsw/jboss-eap-6.1/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
 RUN chmod +x $HOME/run.sh
 
 # Clean up
