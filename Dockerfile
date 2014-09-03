@@ -1,6 +1,6 @@
 #######################################################################
 #                                                                     #
-# Creates a base CentOS image with JBoss Data Virtualization 6.0.0.GA #
+# Creates a base CentOS image with JBoss FSW 6.0.0.GA #
 #                                                                     #
 #######################################################################
 
@@ -52,6 +52,7 @@ RUN echo "alias grep='grep --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias c='clear'" >> $HOME/.bash_profile
 RUN echo "alias sdv='$HOME/fsw/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
 RUN echo "alias xdv='$HOME/fsw/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
+#<<<<<<< HEAD
 
 # Add for Homeloan ---------------------------------------------
 ADD demo/standalone.xml $INSTALLDIR/demo/standalone.xml
@@ -63,6 +64,8 @@ ADD demo/customer.h2.db $INSTALLDIR/demo/customer.h2.db
 RUN cp $INSTALLDIR/demo/customer.h2.db /home/jboss/fsw/jboss-eap-6.1/standalone/data/h2
 ADD demo/customer.trace.db $INSTALLDIR/demo/customer.trace.db
 RUN cp $INSTALLDIR/demo/customer.trace.db /home/jboss/fsw/jboss-eap-6.1/standalone/data/h2
+#=======
+#>>>>>>> e063dff6d3b76ed35d715a39eea5838153c459db
 
 # start.sh
 USER root
