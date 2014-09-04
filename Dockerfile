@@ -22,7 +22,7 @@ RUN useradd -m -d /home/jboss -p jboss jboss
 ##########################################################
 # Install Java JDK, SSH and other useful cmdline utilities
 ##########################################################
-RUN yum -y install java-1.7.0-openjdk which telnet unzip openssh-server sudo openssh-clients;yum clean all
+RUN yum -y install java-1.7.0-openjdk
 ENV JAVA_HOME /usr/lib/jvm/jre
 
 
@@ -64,6 +64,9 @@ ADD demo/customer.h2.db $INSTALLDIR/demo/customer.h2.db
 RUN cp $INSTALLDIR/demo/customer.h2.db /home/jboss/fsw/jboss-eap-6.1/standalone/data/h2
 ADD demo/customer.trace.db $INSTALLDIR/demo/customer.trace.db
 RUN cp $INSTALLDIR/demo/customer.trace.db /home/jboss/fsw/jboss-eap-6.1/standalone/data/h2
+#RUN echo guest=guest >> $INSTALLDIR/jboss-eap-6.1/standalone/configuration/application-roles.properties
+RUN $INSTALLDIR/jboss-eap-6.1/bin/add-user.sh --silent -a -u guest -p guestp.1 --role guest
+RUN cat $INSTALLDIR/jboss-eap-6.1/standalone/configuration/application-roles.properties
 #=======
 #>>>>>>> e063dff6d3b76ed35d715a39eea5838153c459db
 
@@ -78,7 +81,7 @@ RUN chmod +x $HOME/run.sh
 RUN rm -rf $INSTALLDIR/support
 RUN rm -rf $INSTALLDIR/software
 
-EXPOSE 22 3306 5432 8080 9990 27017 9999
+EXPOSE 22 3306 5432 8080 9990 27017 9999 4447
 
 CMD /home/jboss/run.sh
 

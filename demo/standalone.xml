@@ -526,7 +526,13 @@
                         </entries>
                     </pooled-connection-factory>
                 </jms-connection-factories>
-</hornetq-server>
+		<jms-destinations>
+		  <jms-queue name="LoanIntake">
+		    <entry name="queue/LoanIntake"/>
+		    <entry name="java:jboss/exported/jms/queue/LoanIntake"/>
+		  </jms-queue>
+		</jms-destinations>
+	  </hornetq-server>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:modeshape:1.0">
             <repository name="sramp" cache-name="sramp" cache-container="modeshape" security-domain="overlord-idp" anonymous-roles="readonly"/>
