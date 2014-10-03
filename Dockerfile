@@ -5,7 +5,7 @@
 #######################################################################
 
 # Use the centos base image
-FROM centos
+FROM centos:centos6
 
 MAINTAINER kpeeples <kpeeples@redhat.com>
 
