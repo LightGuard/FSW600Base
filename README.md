@@ -1,3 +1,10 @@
+Title: Fuse Service Works Docker
+Author: Kenneth Peeples
+Summary: Build a Docker container for running JBoss Fuse Service Works.
+Level: Intermediate
+Technologies: FSW, Docker
+Target Product: FSW
+
 ## fsw-docker
 This project builds a [docker](http://www.docker.io) container for running [JBoss Fuse Service Works](http://http://www.redhat.com/products/jbossenterprisemiddleware/) 6.0.0.GA.
 
