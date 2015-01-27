@@ -1,4 +1,4 @@
-Title: Fuse Service Works Docker
+# Fuse Service Works Docker
 Author: Kenneth Peeples
 Summary: Build a Docker container for running JBoss Fuse Service Works.
 Level: Intermediate
